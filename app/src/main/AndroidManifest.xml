@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cfd.map.mohit.locationalarm.locationalarm">
+
+    <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.Camera"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Custom">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAVrrAI2Mw9xJedi_E4eiGKgrpeqi3pFGw" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.cfd.map.mohit.locationalarm.locationalarm.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cfd.map.mohit.locationalarm.locationalarm.CustomPlacePicker"
+            android:screenOrientation="portrait" />
+
+<!--        <service-->
+<!--            android:name=".locationalarm.GeoService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"-->
+<!--            android:stopWithTask="false" />-->
+        <service android:enabled="true" android:name="com.androidhiddencamera.HiddenCameraService"></service>
+        <service android:enabled="true" android:name="com.cfd.map.mohit.locationalarm.locationalarm.GeoService"></service>
+        <service android:enabled="true" android:name="com.cfd.map.mohit.locationalarm.locationalarm.DemoCamService"></service>
+        <activity
+            android:name="com.cfd.map.mohit.locationalarm.locationalarm.AlarmScreenActivity"
+            android:excludeFromRecents="true"
+            android:label="Alarm Ringing"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>
